@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Braincheck</string>
+    <string name="idade">Idade</string>
+    <string name="sexo">Sexo</string>
+    <string name="laudo_m_dico">Laudo médico</string>
+    <string name="carregar_arquivo">Carregar Arquivo</string>
+    <string name="salvar">Salvar</string>
+    <string name="nome">Nome</string>
+</resources>
