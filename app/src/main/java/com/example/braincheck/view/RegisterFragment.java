@@ -34,8 +34,8 @@ public class RegisterFragment extends Fragment {
         binding.buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = binding.editTextUsername.getText().toString();
-                String password = binding.editTextPassword.getText().toString();
+                String username = binding.editRegisterUsername.getText().toString();
+                String password = binding.editRegisterPassword.getText().toString();
                 if (checkValidAccount(username,password)){
                     checkUsernameAvailability(username, password);
                 } else {
@@ -52,10 +52,11 @@ public class RegisterFragment extends Fragment {
         userDao.getUserByUsername(username).observe(getViewLifecycleOwner(), user -> {
             if (user == null) {
                 // Usuário disponível
+                binding.textErrorMessage.setVisibility(View.INVISIBLE);
                 registerUser(username, password);
             } else {
                 // Usuário já existe
-                Toast.makeText(requireContext(), "O nome de usuário selecionado já existe. Por favor, escolha outro.", Toast.LENGTH_SHORT).show();
+                binding.textErrorMessage.setVisibility(View.VISIBLE);
             }
         });
     }
